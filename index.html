@@ -1,1 +1,84 @@
-Hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header id = "landing">
+    <h1 class="fancy_name">Akalya</h1>
+    <p>Web Developer | Designer | Learner</p>
+     <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  </header>
+
+  
+  <section id="about">
+    <div>
+    <h2>About Me</h2>
+    <p>A proactive and curious learner passionate about project development and growth.</br>I embrace challenges with positive approach and view every mistake as an oppurtunity to learn </p>
+    </div>
+  </section>
+  <section class="more">
+  <section id="experience">
+    <h2>Experience</h2>
+    <p>
+      <h3>Women In Tech</h3>
+      Coordinated Tinker-hack an event aims to empower women by helping them gain confidence
+      <h3>Misaal winner oasis</h3>
+      Qualified for leadership workshop and Military training</br>
+      Completed L1 workshop based on self development
+      <h3>NSS Volunteer</h3>
+      Coordinated many online activities as part of NSS</br>
+    </p>
+  </section>
+  
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Obstacle avoiding robot</h3>
+      <p>Designed to navigate autonomously</br>
+      Built using Arduino Uno and Embedded C</p>
+    </div>
+    <div class="project">
+      <h3>Calorie meter</h3>
+      <p>It can calculate calories based on user input.</br>
+      Built using Flask,Html,Css</p>
+      <a href="https://github.com/Akalya-s6282/tink-her-hack-3-temp">View in Github</a>
+    </div>
+    <div class="project">
+      <h3>To-do-list</h3>
+      <p>Helps you to manage your tasks.</br>
+      Built using Flask,Html,Css</p>
+      <a href="https://github.com/Akalya-s6282/To-do-list">View in Github</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>
+      <strong>Phone :</strong> 6282182699</br>
+      <strong>Email :</strong> <a href="mailto:akalya6282@gmail.com" class="email-button">Email me</a>
+
+    </p>
+  </section>
+
+  <footer>
+    <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  </footer>
+  </section>
+<img src="{{ url_for('static', filename='blue-flower.png') }}" class="flower-img left">
+<img src="{{ url_for('static', filename='blue-flower.png') }}" class="flower-img right">
+
+</body>
+</html>
+
