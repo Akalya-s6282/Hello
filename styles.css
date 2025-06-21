@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  font-family: 'Poppins', sans-serif;
+  color: #f1f1f1;
+  text-align: center;
+  scroll-behavior: smooth;
+}
+
+.fancy_name
+{
+  font-size: 4rem;
+    font-family: 'Georgia', serif;
+    color: #fff;
+    /* text-shadow: */
+        /* 0 0 10px #00fbff,
+        0 0 20px #00e1ff,
+        0 0 30px #00ffff,
+        0 0 40px #41f9ff,
+        0 0 70px #41ecff; */
+    animation: pulse 2s infinite alternate;
+    letter-spacing: 2px;
+}
+
+.more {
+  background-color: #1a1a1a; /* Dark card background */
+  padding: 40px;
+  margin: 50px auto;
+  max-width: 800px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 255, 231, 0.1),
+              0 4px 15px rgba(0, 255, 255, 0.05);
+  color: #f1f1f1;
+  text-align: left;
+}
+
+/* Landing Section Styling */
+#landing {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #000;
+}
+
+#landing h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #00ffe7;
+  text-shadow:
+    0 0 10px #00ffe7,
+    0 0 20px #00c3ff,
+    0 0 30px #0077ff;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    text-shadow: 0 0 10px #00ffe7, 0 0 20px #00c3ff, 0 0 30px #0077ff;
+  }
+  100% {
+    text-shadow: 0 0 20px #00ffe7, 0 0 30px #00c3ff, 0 0 40px #0077ff;
+  }
+}
+
+#landing p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #0077ff, #00ffe7);
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #00ffe7, #0077ff);
+}
+
+/* Other Sections */
+#more {
+  background-color: #111;
+}
+
+#experience h2,
+#projects h2,
+#contact h2 {
+  font-size: 2rem;
+  color: #00ffe7;
+  margin-bottom: 20px;
+}
+
+.project,
+.email-button {
+  background-color: #1a1a1a;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00ffe766;
+}
+
+.email-button {
+  display: inline-block;
+  color: whitesmoke;
+  text-decoration: none;
+  background: linear-gradient(135deg, #0077ff, #00ffe7);
+  padding: 5px 5px;
+  font-weight: 600;
+  border-radius: 8px;
+  margin-top: 10px;
+  transition: transform 0.2s;
+}
+
+.email-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #00ffe7, #0077ff);
+}
+.flower-img {
+  position: fixed;
+  bottom: 10px;
+  width: 280px;
+  height: 260;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: bloomFlower 2s ease-out forwards;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.flower-img.left {
+  left: 10px;
+  animation-delay: 1s;
+}
+
+.flower-img.right {
+  right: 10px;
+  animation-delay: 1.5s;
+}
+
+@keyframes bloomFlower {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
