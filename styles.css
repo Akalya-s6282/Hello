@@ -15,12 +15,6 @@ body {
   font-size: 4rem;
     font-family: 'Georgia', serif;
     color: #fff;
-    /* text-shadow: */
-        /* 0 0 10px #00fbff,
-        0 0 20px #00e1ff,
-        0 0 30px #00ffff,
-        0 0 40px #41f9ff,
-        0 0 70px #41ecff; */
     animation: pulse 2s infinite alternate;
     letter-spacing: 2px;
 }
@@ -49,7 +43,6 @@ body {
 #landing h1 {
   font-size: 4rem;
   font-weight: 800;
-  color: #00ffe7;
   text-shadow:
     0 0 10px #00ffe7,
     0 0 20px #00c3ff,
@@ -131,7 +124,7 @@ body {
 }
 .flower-img {
   position: fixed;
-  bottom: 10px;
+  bottom: 0px;
   width: 280px;
   height: 260;
   opacity: 0;
@@ -142,12 +135,12 @@ body {
 }
 
 .flower-img.left {
-  left: 10px;
+  left: 0px;
   animation-delay: 1s;
 }
 
 .flower-img.right {
-  right: 10px;
+  right: 0px;
   animation-delay: 1.5s;
 }
 
