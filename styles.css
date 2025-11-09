@@ -20,7 +20,7 @@ html, body {
 
 /* Sidebar setup */
 .sidebar {
-  width: 220px;
+  width: 20%;
   background-color: #1a1a2e;
   color: #fff;
   display: flex;
