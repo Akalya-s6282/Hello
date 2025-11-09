@@ -1,124 +1,270 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
-
-body {
+/* Reset & Global */
+* {
   margin: 0;
   padding: 0;
-  background-color: #000;
-  font-family: 'Poppins', sans-serif;
-  color: #f1f1f1;
-  text-align: center;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
   scroll-behavior: smooth;
 }
 
-.fancy_name
-{
-  font-size: 4rem;
-    font-family: 'Georgia', serif;
-    color: #fff;
-    animation: pulse 2s infinite alternate;
-    letter-spacing: 2px;
-}
-
-.more {
-  background-color: #1a1a1a; /* Dark card background */
-  padding: 40px;
-  margin: 50px auto;
-  max-width: 800px;
-  border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(0, 255, 231, 0.1),
-              0 4px 15px rgba(0, 255, 255, 0.05);
-  color: #f1f1f1;
-  text-align: left;
-}
-
-/* Landing Section Styling */
-#landing {
+body {
+  display: flex;
   height: 100vh;
+  overflow: hidden;
+  background-color: #f0f0f5;
+}
+
+/* Container Layout */
+.container {
+  display: flex;
+  width: 100%;
+}
+/* Make landing fill the entire viewport */
+#landing {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full screen */
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Make the photo fill the entire background */
+#landingPhoto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* keeps proportions but covers entire area */
+  z-index: 0;
+}
+
+/* Position your name and tagline in the center */
+.landing-text {
+  position: absolute;
+  /* top: 50%;
+  left: 50%; */
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.3); /* optional overlay for better text visibility */
+  /* padding: 20px 40px; */
+  border-radius: 10px;
+}
+
+.landing-text h1 {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+}
+
+.landing-text p {
+  font-size: 1.5rem;
+}
+
+
+/* Sidebar */
+.sidebar {
+  width: 20%;
+  background-color: #1e1e2f;
+  color: white;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  background-color: #000;
+  transition: all 0.5s ease;
+  position: fixed;
+  height: 100vh;
+  z-index: 5;
 }
 
-#landing h1 {
-  font-size: 4rem;
-  font-weight: 800;
-  text-shadow:
-    0 0 10px #00ffe7,
-    0 0 20px #00c3ff,
-    0 0 30px #0077ff;
-  animation: pulse 2s infinite alternate;
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
-@keyframes pulse {
-  0% {
-    text-shadow: 0 0 10px #00ffe7, 0 0 20px #00c3ff, 0 0 30px #0077ff;
-  }
-  100% {
-    text-shadow: 0 0 20px #00ffe7, 0 0 30px #00c3ff, 0 0 40px #0077ff;
-  }
-}
-
-#landing p {
+.side-nav a {
+  color: white;
+  text-decoration: none;
   font-size: 1.2rem;
-  color: #ccc;
-  margin: 20px auto;
-  max-width: 600px;
+  transition: 0.3s;
 }
 
-.button {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 12px 28px;
-  background: linear-gradient(135deg, #0077ff, #00ffe7);
-  color: black;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: transform 0.2s ease;
-}
-
-.button:hover {
+.side-nav a:hover {
+  color: #ff8c00;
   transform: scale(1.05);
-  background: linear-gradient(135deg, #00ffe7, #0077ff);
 }
 
-/* Other Sections */
-#more {
-  background-color: #111;
+/* Sidebar Profile Photo */
+.profile-photo {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-image: url("Akalya.jpg");
+  background-size: cover;
+  background-position: center;
+  border: none;
+  border-radius: 0;
 }
 
-#experience h2,
-#projects h2,
-#contact h2 {
-  font-size: 2rem;
-  color: #00ffe7;
-  margin-bottom: 20px;
+/* Main Content Area */
+.main-content {
+  margin-left: 20%;
+  flex-grow: 1;
+  overflow-y: auto;
+  height: 100vh;
+  background-color: #f8f9fa;
+  transition: all 0.5s ease;
+  padding-top: 0;
 }
 
+/* Top Navigation */
+.top-nav {
+  display: none;
+  background-color: #1e1e2f;
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  justify-content: center;
+  gap: 25px;
+}
+
+.top-nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.top-nav a:hover {
+  color: #ff8c00;
+  transform: scale(1.1);
+}
+
+/* Section Structure */
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  background-color: #ffffff;
+}
+
+/* Card / Box Layout for Inner Divs */
+.section > div,
 .project,
-.email-button {
-  background-color: #1a1a1a;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #00ffe766;
+#contact p,
+#about div {
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 900px;
+  padding: 40px;
+  margin: 30px 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.email-button {
-  display: inline-block;
-  color: whitesmoke;
+.section > div:hover,
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Typography */
+.section h2 {
+  font-size: 2rem;
+  color: #1e1e2f;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.section p {
+  line-height: 1.8;
+  color: #333;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* Landing Page (Home) */
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.main-photo {
+  width: 60%;
+  max-width: 500px;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+.fancy_name {
+  font-size: 3rem;
+  margin-top: 20px;
+  color: #1e1e2f;
+}
+
+/* Projects */
+.project h3 {
+  color: #ff8c00;
+  margin-bottom: 10px;
+}
+
+.project p {
+  color: #444;
+}
+
+.project a {
+  color: #ff8c00;
   text-decoration: none;
-  background: linear-gradient(135deg, #0077ff, #00ffe7);
-  padding: 5px 5px;
-  font-weight: 600;
-  border-radius: 8px;
-  margin-top: 10px;
-  transition: transform 0.2s;
+  font-weight: 500;
 }
 
-.email-button:hover {
-  transform: scale(1.05);
-  background: linear-gradient(135deg, #00ffe7, #0077ff);
+.project a:hover {
+  text-decoration: underline;
+}
+
+/* Contact Section */
+#contact a {
+  color: #ff8c00;
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+/* Footer (optional improvement if needed) */
+footer {
+  background-color: #1e1e2f;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+footer a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #ff8c00;
 }
