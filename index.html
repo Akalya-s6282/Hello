@@ -40,22 +40,65 @@
       </section>
 
       <section id="projects" class="section">
-        <h2>Projects</h2>
-        <div class="project">
-          <h3>Obstacle Avoiding Robot</h3>
-          <p>Designed to navigate autonomously using Arduino Uno and Embedded C.</p>
-        </div>
-        <div class="project">
-          <h3>Calorie Meter</h3>
-          <p>Calculates calories based on user input. Built using Flask, HTML, and CSS.</p>
-          <a href="https://github.com/Akalya-s6282/tink-her-hack-3-temp">View on GitHub</a>
-        </div>
-        <div class="project">
-          <h3>To-Do List</h3>
-          <p>Helps manage daily tasks. Built using Flask, HTML, and CSS.</p>
-          <a href="https://github.com/Akalya-s6282/To-do-list">View on GitHub</a>
-        </div>
-      </section>
+  <h2>Projects</h2>
+
+  <div class="gallery-container">
+    <div class="slider">
+      <div class="slide" data-title="Obstacle Avoiding Robot"
+           data-description="An autonomous robot that detects and avoids obstacles using Arduino Uno and ultrasonic sensors."
+           data-github="https://github.com/yourusername/obstacle-avoiding-robot">
+        <img src="Robot.png" alt="Obstacle Avoiding Robot">
+        <h3>Obstacle Avoiding Robot</h3>
+      </div>
+
+      <div class="slide" data-title="Calorie Meter"
+           data-description="A Flask-based web app that estimates calories based on user input. Built using HTML, CSS, and Flask."
+           data-github="https://github.com/yourusername/calorie-meter">
+        <img src="Calorie meter.png" alt="Calorie Meter">
+        <h3>Calorie Meter</h3>
+      </div>
+
+      <div class="slide" data-title="To-Do List"
+           data-description="A simple task management app with Flask backend and clean UI built using HTML and CSS."
+           data-github="https://github.com/yourusername/todo-list">
+        <img src="Todolist.png" alt="To-Do List">
+        <h3>To-Do List</h3>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="modalImage" src="" alt="">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+      <a id="modalGithub" href="#" target="_blank">View on GitHub</a>
+    </div>
+  </div>
+</section>
+<div class="project-grid">
+  <div class="grid-item" data-title="Obstacle Avoiding Robot" data-description="An autonomous robot that detects and avoids obstacles using Arduino Uno and ultrasonic sensors." data-link="https://github.com/Akalya-s6282/tink-her-hack-3-temp">
+    <img src="Robot.png" alt="Obstacle Avoiding Robot">
+    <p>Obstacle Avoiding Robot</p>
+  </div>
+
+  <div class="grid-item" data-title="Calorie Meter" data-description="A Flask-based web app that estimates calories based on user input. Built using HTML, CSS, and Flask." data-link="https://github.com/Akalya-s6282/tink-her-hack-3-temp">
+    <img src="Calorie meter.png" alt="Calorie Meter">
+    <p>Calorie Meter</p>
+  </div>
+
+  <div class="grid-item" data-title="To-Do List" data-description="A simple task management app with Flask backend and clean UI built using HTML and CSS." data-link="https://github.com/Akalya-s6282/To-do-list">
+    <img src="Todolist.png" alt="To-Do List">
+    <p>To-Do List</p>
+  </div>
+</div>
 
       <section id="contact" class="section">
         <h2>Contact Me</h2>
