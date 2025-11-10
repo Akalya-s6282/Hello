@@ -11,23 +11,124 @@ html, body {
   overflow-x: hidden;
   font-family: 'Poppins', sans-serif;
 }
+/* Animated Akalya heading */
+/* Pop-up Akalya heading */
+.home-content p,
+.fancy_name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+  margin-top: 15px;
+  opacity: 0;                  /* start invisible */
+  transform: translateY(50px); /* start below */
+  animation: popUpSubtitle 1.5s ease-out forwards;
+  animation-delay: 0.6s;       /* start after name animation */
+}
+
+/* Keyframes for subtitle pop-up */
+@keyframes popUpSubtitle {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* Container layout */
 .container {
   display: flex;
   min-height: 100vh;
 }
+/* ABOUT SECTION */
+#about {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 20px;
+  background: #fff; /* dark consistent background */
+  color: #1a1a2e; /* white text */
+  text-align: left;
+}
+
+/* Each card container */
+#about > div {
+  background: rgb(255, 255, 255); /* subtle overlay */
+  padding: 25px 30px;
+  border-radius: 12px;
+  flex: 1 1 300px;
+  min-width: 280px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.336);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Card hover shadow only */
+#about > div:hover {
+  box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+}
+
+/* Headings */
+#about h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #1a1a2e; /* white headings */
+}
+
+/* Optional small underline */
+#about h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 50px;
+  height: 3px;
+  background: #1a1a2e;
+  border-radius: 3px;
+}
+
+/* Experience headings */
+#about h3 {
+  font-size: 1.3rem;
+  margin-top: 15px;
+  color: #1a1a2e;
+}
+
+/* Paragraphs */
+#about p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-top: 8px;
+  color: #1a1a2e;
+}
+
 
 /* Sidebar setup */
 .sidebar {
-  width: 20%;
-  background-color: #1a1a2e;
-  color: #fff;
+   width: 20%;
+  background: linear-gradient(to bottom, #1a1a2e, #111); /* subtle gradient */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 60px;
-  transition: width 0.3s ease, opacity 0.3s ease;
+  position: relative;
+  transition: all 0.5s ease;
 }
 
 .side-nav {
@@ -38,28 +139,55 @@ html, body {
 
 .side-nav a {
   color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
   text-decoration: none;
-  font-size: 1.1rem;
-  transition: color 0.3s ease;
+  position: relative;
+  transition: color 0.3s ease, transform 0.4s ease;
 }
 
 .side-nav a:hover {
-  color: #00aaff;
+  color: #00d1ff;
+  transform: translateX(5px);
+}
+.side-nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #00d1ff;
+  transition: width 0.3s ease;
+}
+
+.side-nav a:hover::after {
+  width: 100%;
 }
 
 .profile-photo {
-  display: none; /* Hidden on home */
-  width: 100%;
+  /* display: none; Hidden on home */
+   width: 100%;
   height: 100%;
   background-image: url("Akalya_side.jpg");
   background-size: cover;
-  background-position: 50% 10%;
+  background-position: 50% 20%;
+  opacity: 0;                  /* start hidden */
+  transform: translateY(50px); /* start below */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;     
+}
+.profile-photo.show {
+  opacity: 1;
+  transform: translateY(0);    /* slide up to normal position */
+  pointer-events: auto;/* slide up and scale to normal */
 }
 
 /* Main content layout */
 .main-content {
   flex: 1;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 100vh;
 }
 
@@ -127,13 +255,21 @@ html, body {
 .section {
   text-align: center;
   padding: 30px;
+  background: rgb(255, 255, 255); /* subtle overlay */
+  padding: 25px 30px;
+  border-radius: 12px;
+  flex: 1 1 300px;
+  min-width: 280px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.336);
+  transition: box-shadow 0.3s ease;
+
 }
 
 .gallery-container {
   position: relative;
   width: 80%;
   height: 60%;
-  margin: 20px auto;
+  margin: 10px auto;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0,0,0,0.25);
@@ -245,7 +381,7 @@ html, body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  width: 90%;
+  width: 60%;
   margin: 40px auto;
 }
 
@@ -279,6 +415,7 @@ html, body {
 
 
 @keyframes fadeIn {
-  from {opacity: 0; transform: scale(0.95);}
-  to {opacity: 1; transform: scale(1);}
+  0% { text-shadow: 0 0 5px #00d1ff, 0 0 10px #ff00ff; }
+  50% { text-shadow: 0 0 15px #00ff88, 0 0 25px #ff00ff; }
+  100% { text-shadow: 0 0 5px #00d1ff, 0 0 10px #ff00ff; }
 }
