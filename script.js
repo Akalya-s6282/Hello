@@ -169,25 +169,24 @@ const modalImg = document.getElementById("previewCertImg");
 const modalTitle = document.getElementById("previewCertTitle");
 const modalIssuer = document.getElementById("previewCertIssuer");
 const modalLink = document.getElementById("previewCertLink");
+const closeBtn = document.getElementById("closeCertificatePreview");
 
-// Open modal on click
+// Open modal
 cards.forEach(card => {
-  card.querySelector(".view-btn").addEventListener("click", (e) => {
+  card.querySelector(".view-btn").addEventListener("click", e => {
     e.preventDefault();
     modalTitle.textContent = card.dataset.title;
     modalIssuer.textContent = card.dataset.issuer;
-    modalImg.src = card.dataset.img;
+    modalImg.src = card.dataset.img; // must be "export=view" link
     modalLink.href = card.dataset.img;
     modal.style.display = "flex";
   });
 });
 
-// Close modal
-document.getElementById("closeCertificatePreview").addEventListener("click", () => {
-  modal.style.display = "none";
-});
+// Close modal on X
+closeBtn.addEventListener("click", () => { modal.style.display = "none"; });
 
-// Click outside modal content to close
-modal.addEventListener("click", (e) => {
+// Close modal by clicking outside content
+modal.addEventListener("click", e => {
   if (e.target === modal) modal.style.display = "none";
 });
