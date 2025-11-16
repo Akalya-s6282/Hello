@@ -108,3 +108,58 @@ document.addEventListener("DOMContentLoaded", () => {
   closeModal.addEventListener("click", closeModalHandler);
   window.addEventListener("click", (e) => { if (e.target === modal) closeModalHandler(); });
 });
+const skillProjects = {
+  foundation: [
+    "Blink Controlled Assistive Keyboard (base logic & Python)",
+    "Discord Verification Bot (Python)"
+  ],
+  problem: [
+    "Blink Signal Interpretation & Navigation Logic",
+    "Matrix-style Functional Test Cases"
+  ],
+  web: [
+    "Assistive Keyboard UI (Pygame → Flet)",
+    "Portfolio Website",
+    "Flask Based Calorie Estimator"
+  ],
+  ai: [
+    "Codebase modification using AI",
+    "Feature Integration & Adaptation"
+  ]
+};
+// Show projects when clicking a skill card
+document.querySelectorAll('.skill-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const key = card.dataset.skill;
+    const projectBox = document.getElementById("skillProjects");
+
+    projectBox.innerHTML = `
+      <h3>Projects Applied:</h3>
+      ${skillProjects[key].map(p => `<p>• ${p}</p>`).join('')}
+    `;
+
+    projectBox.style.display = "block";
+  });
+});
+
+// Scroll to full projects section when projectBox is clicked
+document.getElementById("skillProjects").addEventListener("click", () => {
+  document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+});
+
+document.querySelectorAll(".skill-card").forEach(card => {
+  const icons = card.querySelectorAll(".icon-row i");
+  const infoArea = card.querySelector(".icon-info");
+
+  icons.forEach(icon => {
+    icon.addEventListener("mouseenter", () => {
+      infoArea.textContent = icon.getAttribute("data-tooltip");
+      card.classList.add("show-info");
+    });
+
+    icon.addEventListener("mouseleave", () => {
+      infoArea.textContent = "";
+      card.classList.remove("show-info");
+    });
+  });
+});

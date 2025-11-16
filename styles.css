@@ -188,7 +188,8 @@ html, body {
 .main-content {
   flex: 1;
   overflow-y: auto;
-  height: 100vh;
+  height: 100vh; 
+
 }
 
 /* Landing Section - full screen photo */
@@ -265,6 +266,151 @@ html, body {
 
 }
 
+/* Skill Section */
+#skills {
+  padding: 40px;
+  text-align: center;
+}
+/* Projects Display Box */
+#skillProjects {
+  padding: 25px 30px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.336);
+  display: none;
+  background: #eee;
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 22px;
+  color: #111;
+  font-size: 15px;
+  line-height: 1.5;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  
+}
+
+/* Title inside project box */
+#skillProjects h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* Bullet styling */
+#skillProjects p {
+  margin: 4px 0;
+  font-weight: 500;
+}
+
+/* Small-screen tweak */
+@media (max-width: 600px) {
+  #skillProjects {
+    font-size: 14px;
+    padding: 15px;
+  }
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+/* Skill Cards Grid */
+.skill-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  animation: fadeIn 1.2s ease;
+}
+
+/* Individual Cards */
+.skill-card {
+  background: #fff;
+  color: #111;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.336);
+  padding: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+}
+
+/* Hover elevation */
+.skill-card:hover {
+  transform: scale(1.06);
+  border-color: #00eaff;
+  box-shadow: 0 0 14px rgba(0, 234, 255, 0.48);
+}
+
+.skill-card h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+/* Icon layout */
+.icon-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.icon-row i {
+  font-size: 38px;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Icon hover effect */
+.icon-row i:hover {
+  filter: drop-shadow(0 0 6px #0b1911e9);
+}
+
+/* Tooltip (floating bubble) */
+
+
+.icon-row i:hover::after {
+  opacity: 1;
+  bottom: -36px;
+}
+
+/* Inside-card hover info */
+.icon-info {
+  font-size: 14px;
+  color: #00eaff;
+  margin-top: 6px;
+  min-height: 18px; 
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+/* Show on icon hover ONLY */
+.skill-card.show-info .icon-info {
+  opacity: 1;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .skill-card {
+    padding: 16px;
+  }
+
+  .icon-row i {
+    font-size: 32px;
+  }
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
 .gallery-container {
   position: relative;
   width: 80%;
@@ -340,6 +486,7 @@ html, body {
   left: 0; top: 0;
   width: 100%; height: 100%;
   background-color: rgba(0,0,0,0.8);
+  overflow: auto;
 }
 
 .modal-content {
@@ -348,6 +495,8 @@ html, body {
   padding: 20px;
   width: 70%;
   max-width: 600px;
+  max-height: 80vh; 
+  overflow-y: auto; 
   text-align: center;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.4);
@@ -396,8 +545,9 @@ html, body {
 }
 
 .grid-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0px 0px 14px rgba(0, 234, 255, 0.45);
+  
 }
 
 .grid-item img {
@@ -419,3 +569,213 @@ html, body {
   50% { text-shadow: 0 0 15px #00ff88, 0 0 25px #ff00ff; }
   100% { text-shadow: 0 0 5px #00d1ff, 0 0 10px #ff00ff; }
 }
+#certificates {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.certificate-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.certificate-card {
+  background: #fff;
+ box-shadow: 0 6px 15px rgba(0, 0, 0, 0.336);
+  padding: 18px;
+  border-radius: 12px;
+  transition: 0.3s;
+  margin-bottom: 18px;
+  color: #111;
+}
+
+.certificate-card:hover {
+  transform: scale(1.06);;
+  border-color: #00eaff;
+  box-shadow: 0px 0px 14px rgba(0, 234, 255, 0.45);
+}
+
+.certificate-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.certificate-card p {
+  font-size: 14px;
+  margin: 6px 0 12px;
+  opacity: 0.8;
+}
+
+.view-btn {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #00eaff;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.view-btn:hover {
+  background: #0099aa;
+}
+.certificate-preview {
+  display: none;
+  width: 100%;
+  background: #f9f9f9;
+  border: 2px solid #ccc;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  overflow-y: auto;
+  max-height: 70vh; /* scrollable if content is too tall */
+}
+
+.certificate-preview-content img {
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+.close-btn {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+  margin-top: -10px;
+  margin-right: -10px;
+}
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.contact-form {
+  flex: 1 1 300px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+  border-color: #0077b5; /* LinkedIn blue highlight */
+  outline: none;
+}
+
+.contact-form button {
+  background: #0077b5;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.contact-form button:hover {
+  background: #005582;
+  transform: scale(1.05);
+}
+
+/* Container for all contact cards */
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* Individual card styling */
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  /* background: #fff;
+  border-radius: 12px; */
+  /* box-shadow: 0 6px 15px rgba(0,0,0,0.2); */
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  cursor: pointer;
+}
+
+/* Icon inside card */
+.contact-card i {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+  transition: transform 0.3s, color 0.3s;
+}
+
+/* Card label */
+.contact-card span {
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Hover animation */
+.contact-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Hover icon scaling */
+.contact-card:hover i {
+  transform: scale(1.2);
+}
+
+/* Platform-specific colors */
+.contact-card[href*="mailto"] i {
+  color: #D44638; /* Gmail red */
+}
+
+.contact-card[href*="linkedin"] i {
+  color: #0077b5; /* LinkedIn blue */
+}
+
+.contact-card[href*="wa.me"] i {
+  color: #25D366; /* WhatsApp green */
+}
+
+/* Responsive adjustment */
+@media screen and (max-width: 500px) {
+  .contact-card {
+    width: 120px;
+    height: 120px;
+  }
+
+  .contact-card i {
+    font-size: 2rem;
+  }
+
+  .contact-card span {
+    font-size: 0.9rem;
+  }
+}
+
+

@@ -1,130 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Akalya | Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akalya | Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- Devicon for tech logos -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+  </head>
 
-</head>
-<body>
-  <div class="container">
-    <aside class="sidebar" id="sidebar">
-      <nav class="side-nav" id="sideNav">
-        <a href="#landing">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="profile-photo" id="profilePhoto"></div>
-    </aside>
+  <body>
+    <div class="container">
+      <aside class="sidebar" id="sidebar">
+        <nav class="side-nav" id="sideNav">
+          <a href="#landing">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="profile-photo" id="profilePhoto"></div>
+      </aside>
 
-    <main class="main-content">
-      <header class="top-nav" id="topNav">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </header>
+      <main class="main-content">
+        <header class="top-nav" id="topNav">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </header>
 
-      <section id="landing" class="section active">
-        <div class="home-content">
-          <img src="Akalya.jpg" alt="Akalya" class="main-photo" />
-          <h1 class="fancy_name">Akalya</h1>
-          <p class="home-desc">Web Developer | Python developer | Learner</p>
-        </div>
-      </section>
+        <!-- Landing Section -->
+        <section id="landing" class="section active">
+          <div class="home-content">
+            <img src="Akalya.jpg" alt="Akalya" class="main-photo" />
+            <h1 class="fancy_name">Akalya</h1>
+            <p class="home-desc">Web Developer | Python Developer | Learner</p>
+          </div>
+        </section>
 
-      <section id="about" class="section">
-  <div class="about-card">
-    <h2>About Me</h2>
-    <p>A proactive and curious learner passionate about project development and growth.
-    I embrace challenges with positive approach and view every mistake as an opportunity to learn.</p>
-  </div>
+        <!-- About Section -->
+        <section id="about" class="section">
+          <div class="about-card">
+            <h2>About Me</h2>
+            <p>
+              A proactive and curious learner passionate about project
+              development and growth. I embrace challenges with a positive
+              approach and view every mistake as an opportunity to learn.
+            </p>
+          </div>
 
-  <div class="about-card">
-    <h2>Experience</h2>
-    <h3>Women In Tech</h3>
-    <p>Coordinated Tinker-hack an event to empower women by helping them gain confidence.</p>
+          <div class="about-card">
+            <h2>Experience</h2>
+            <h3>Women In Tech</h3>
+            <p>
+              Coordinated Tinker-hack, an event to empower women by helping them
+              gain confidence.
+            </p>
 
-    <h3>Misaal Winner Oasis</h3>
-    <p>Qualified for leadership workshop and military training. Completed L1 workshop based on self-development.</p>
+            <h3>Misaal Winner Oasis</h3>
+            <p>
+              Qualified for leadership workshop and military training. Completed
+              L1 workshop based on self-development.
+            </p>
 
-    <h3>NSS Volunteer</h3>
-    <p>Coordinated many online activities as part of NSS.</p>
-  </div>
-</section>
+            <h3>NSS Volunteer</h3>
+            <p>Coordinated many online activities as part of NSS.</p>
+          </div>
+        </section>
 
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+          <h2 class="section-title">Skills & Experience Matrix</h2>
 
-      <section id="projects" class="section">
-  <h2>Projects</h2>
+          <div class="skill-container">
+            <div class="skill-card" data-skill="foundation">
+              <h3>Programming Foundations</h3>
+              <div class="icon-row">
+                <i class="devicon-c-plain colored" data-tooltip="C"></i>
+                <i
+                  class="devicon-cplusplus-plain colored"
+                  data-tooltip="C++"
+                ></i>
+                <i
+                  class="devicon-python-plain colored"
+                  data-tooltip="Python"
+                ></i>
+                <i class="devicon-java-plain colored" data-tooltip="Java"></i>
+              </div>
+              <div class="icon-info"></div>
+            </div>
 
-  <div class="gallery-container">
-    <div class="slider">
-      <div class="slide" data-title="Obstacle Avoiding Robot"
-           data-description="An autonomous robot that detects and avoids obstacles using Arduino Uno and ultrasonic sensors."
-           data-github="https://github.com/yourusername/obstacle-avoiding-robot">
-        <img src="Robot.png" alt="Obstacle Avoiding Robot">
-        <h3>Obstacle Avoiding Robot</h3>
-      </div>
+            <div class="skill-card" data-skill="web">
+              <h3>Web & Integration</h3>
+              <div class="icon-row">
+                <i class="devicon-html5-plain colored" data-tooltip="HTML5"></i>
+                <i
+                  class="devicon-javascript-plain colored"
+                  data-tooltip="JavaScript"
+                ></i>
+                <i class="devicon-flask-original" data-tooltip="Flask"></i>
+              </div>
+              <div class="icon-info"></div>
+            </div>
 
-      <div class="slide" data-title="Calorie Meter"
-           data-description="A Flask-based web app that estimates calories based on user input. Built using HTML, CSS, and Flask."
-           data-github="https://github.com/yourusername/calorie-meter">
-        <img src="Calorie meter.png" alt="Calorie Meter">
-        <h3>Calorie Meter</h3>
-      </div>
+            <div class="skill-projects" id="skillProjects"></div>
+          </div>
+        </section>
 
-      <div class="slide" data-title="To-Do List"
-           data-description="A simple task management app with Flask backend and clean UI built using HTML and CSS."
-           data-github="https://github.com/yourusername/todo-list">
-        <img src="Todolist.png" alt="To-Do List">
-        <h3>To-Do List</h3>
-      </div>
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+          <h2>Projects</h2>
+
+          <div class="gallery-container">
+            <div class="slider">
+              <div
+                class="slide"
+                data-title="Obstacle Avoiding Robot"
+                data-description="An autonomous robot that detects and avoids obstacles using Arduino Uno and ultrasonic sensors."
+                data-github="https://github.com/yourusername/obstacle-avoiding-robot"
+              >
+                <img src="Robot.png" alt="Obstacle Avoiding Robot" />
+                <h3>Obstacle Avoiding Robot</h3>
+              </div>
+
+              <div
+                class="slide"
+                data-title="Calorie Meter"
+                data-description="A Flask-based web app that estimates calories based on user input. Built using HTML, CSS, and Flask."
+                data-github="https://github.com/yourusername/calorie-meter"
+              >
+                <img src="Calorie meter.png" alt="Calorie Meter" />
+                <h3>Calorie Meter</h3>
+              </div>
+
+              <div
+                class="slide"
+                data-title="To-Do List"
+                data-description="A simple task management app with Flask backend and clean UI built using HTML and CSS."
+                data-github="https://github.com/yourusername/todo-list"
+              >
+                <img src="Todolist.png" alt="To-Do List" />
+                <h3>To-Do List</h3>
+              </div>
+            </div>
+
+            <div class="nav-buttons">
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+            </div>
+          </div>
+
+          <!-- Modal -->
+          <div id="projectModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <img id="modalImage" src="" alt="" />
+              <h3 id="modalTitle"></h3>
+              <p id="modalDescription"></p>
+              <a id="modalGithub" href="#" target="_blank">View on GitHub</a>
+            </div>
+          </div>
+
+          <!-- Project Grid -->
+          <div class="project-grid">
+            <div
+              class="grid-item"
+              data-title="Obstacle Avoiding Robot"
+              data-description="An autonomous robot that detects and avoids obstacles using Arduino Uno and ultrasonic sensors."
+              data-link="https://github.com/Akalya-s6282/tink-her-hack-3-temp"
+            >
+              <img src="Robot.png" alt="Obstacle Avoiding Robot" />
+              <p>Obstacle Avoiding Robot</p>
+            </div>
+
+            <div
+              class="grid-item"
+              data-title="Calorie Meter"
+              data-description="A Flask-based web app that estimates calories based on user input. Built using HTML, CSS, and Flask."
+              data-link="https://github.com/Akalya-s6282/tink-her-hack-3-temp"
+            >
+              <img src="Calorie meter.png" alt="Calorie Meter" />
+              <p>Calorie Meter</p>
+            </div>
+
+            <div
+              class="grid-item"
+              data-title="To-Do List"
+              data-description="A simple task management app with Flask backend and clean UI built using HTML and CSS."
+              data-link="https://github.com/Akalya-s6282/To-do-list"
+            >
+              <img src="Todolist.png" alt="To-Do List" />
+              <p>To-Do List</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="section">
+          <h2 class="section-title">Certifications</h2>
+
+          <div
+            id="certificatePreview"
+            class="certificate-preview"
+            style="display: none"
+          >
+            <div class="certificate-preview-content">
+              <span id="closeCertificatePreview" class="close-btn"
+                >&times;</span
+              >
+              <h3 id="previewCertTitle"></h3>
+              <p id="previewCertIssuer"></p>
+              <img id="previewCertImg" src="" alt="Certificate" />
+              <a id="previewCertLink" href="#" target="_blank"
+                >Open Certificate</a
+              >
+            </div>
+          </div>
+
+          <div class="certificate-card">
+            <h3>Python for Everybody</h3>
+            <p>University of Michigan</p>
+            <a href="#" target="_blank" class="view-btn">View Certificate</a>
+          </div>
+
+          <div class="certificate-card">
+            <h3>AI & Prompt Engineering</h3>
+            <p>Google / DeepLearning / Udemy</p>
+            <a href="#" target="_blank" class="view-btn">View Certificate</a>
+          </div>
+
+          <div class="certificate-card">
+            <h3>Web Development Bootcamp</h3>
+            <p>Udemy / Coursera</p>
+            <a href="#" target="_blank" class="view-btn">View Certificate</a>
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+          <h2 class="section-title">Contact Me</h2>
+
+          <div class="contact-container">
+            <!-- Contact Info -->
+            <div class="contact-info">
+              <p><strong>Phone:</strong> 6282182699</p>
+              <p>
+                <a
+                  href="mailto:akalya6282@gmail.com"
+                  class="contact-card"
+                  target="_blank"
+                >
+                  <i class="fas fa-envelope"></i>
+                  <span>Email Me</span>
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/akalya"
+                  class="contact-card"
+                  target="_blank"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  <span>LinkedIn</span>
+                </a>
+
+                <a
+                  href="https://wa.me/916282182699"
+                  class="contact-card"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                  <span>WhatsApp</span>
+                </a>
+              </p>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+              <form
+                action="mailto:akalya6282@gmail.com"
+                method="post"
+                enctype="text/plain"
+              >
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  rows="5"
+                  required
+                ></textarea>
+                <button type="submit">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
 
-    <div class="nav-buttons">
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
-    </div>
-  </div>
-
-  <!-- Modal -->
-  <div id="projectModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <img id="modalImage" src="" alt="">
-      <h3 id="modalTitle"></h3>
-      <p id="modalDescription"></p>
-      <a id="modalGithub" href="#" target="_blank">View on GitHub</a>
-    </div>
-  </div>
-</section>
-<div class="project-grid">
-  <div class="grid-item" data-title="Obstacle Avoiding Robot" data-description="An autonomous robot that detects and avoids obstacles using Arduino Uno and ultrasonic sensors." data-link="https://github.com/Akalya-s6282/tink-her-hack-3-temp">
-    <img src="Robot.png" alt="Obstacle Avoiding Robot">
-    <p>Obstacle Avoiding Robot</p>
-  </div>
-
-  <div class="grid-item" data-title="Calorie Meter" data-description="A Flask-based web app that estimates calories based on user input. Built using HTML, CSS, and Flask." data-link="https://github.com/Akalya-s6282/tink-her-hack-3-temp">
-    <img src="Calorie meter.png" alt="Calorie Meter">
-    <p>Calorie Meter</p>
-  </div>
-
-  <div class="grid-item" data-title="To-Do List" data-description="A simple task management app with Flask backend and clean UI built using HTML and CSS." data-link="https://github.com/Akalya-s6282/To-do-list">
-    <img src="Todolist.png" alt="To-Do List">
-    <p>To-Do List</p>
-  </div>
-</div>
-
-      <section id="contact" class="section">
-        <h2>Contact Me</h2>
-        <p><strong>Phone:</strong> 6282182699</p>
-        <p><strong>Email:</strong> <a href="mailto:akalya6282@gmail.com">akalya6282@gmail.com</a></p>
-      </section>
-    </main>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
