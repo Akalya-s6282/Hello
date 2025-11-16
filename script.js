@@ -163,3 +163,31 @@ document.querySelectorAll(".skill-card").forEach(card => {
     });
   });
 });
+const cards = document.querySelectorAll(".certificate-card");
+const modal = document.getElementById("certificatePreview");
+const modalImg = document.getElementById("previewCertImg");
+const modalTitle = document.getElementById("previewCertTitle");
+const modalIssuer = document.getElementById("previewCertIssuer");
+const modalLink = document.getElementById("previewCertLink");
+
+// Open modal on click
+cards.forEach(card => {
+  card.querySelector(".view-btn").addEventListener("click", (e) => {
+    e.preventDefault();
+    modalTitle.textContent = card.dataset.title;
+    modalIssuer.textContent = card.dataset.issuer;
+    modalImg.src = card.dataset.img;
+    modalLink.href = card.dataset.img;
+    modal.style.display = "flex";
+  });
+});
+
+// Close modal
+document.getElementById("closeCertificatePreview").addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// Click outside modal content to close
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) modal.style.display = "none";
+});
