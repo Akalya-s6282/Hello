@@ -210,13 +210,13 @@
        <section id="certificates">
   <h2 class="section-title">Certifications</h2>
 
-  <!-- Modal inside section -->
+  <!-- Modal (inline inside section) -->
   <div id="certificatePreview" class="certificate-preview">
     <div class="certificate-preview-content">
       <span id="closeCertificatePreview" class="close-btn">&times;</span>
       <h3 id="previewCertTitle"></h3>
       <p id="previewCertIssuer"></p>
-      <img id="previewCertImg" src="" alt="Certificate">
+      <iframe id="previewCertIframe" src="" width="100%" height="500px"></iframe>
       <a id="previewCertLink" href="#" target="_blank">Open in new tab</a>
     </div>
   </div>
@@ -226,7 +226,7 @@
     <div class="certificate-card"
          data-title="Python for Everybody"
          data-issuer="University of Michigan"
-         data-img="https://drive.google.com/uc?export=view&id=1s3GCwqDeVQ3Wvx6pU3Hpu-yrEW4xqgp">
+         data-file-id="1s3GCwqDeVQ3Wvx6pU3Hpu-yrEW4xwqgp">
       <h3>Python for Everybody</h3>
       <p>University of Michigan</p>
       <a href="#" class="view-btn">View Certificate</a>
@@ -235,9 +235,18 @@
     <div class="certificate-card"
          data-title="AI & Prompt Engineering"
          data-issuer="Google / DeepLearning / Udemy"
-         data-img="https://drive.google.com/uc?export=view&id=YOUR_FILE_ID">
+         data-file-id="YOUR_FILE_ID_2">
       <h3>AI & Prompt Engineering</h3>
       <p>Google / DeepLearning / Udemy</p>
+      <a href="#" class="view-btn">View Certificate</a>
+    </div>
+
+    <div class="certificate-card"
+         data-title="Web Development Bootcamp"
+         data-issuer="Udemy / Coursera"
+         data-file-id="YOUR_FILE_ID_3">
+      <h3>Web Development Bootcamp</h3>
+      <p>Udemy / Coursera</p>
       <a href="#" class="view-btn">View Certificate</a>
     </div>
   </div>

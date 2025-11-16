@@ -171,22 +171,22 @@ const modalIssuer = document.getElementById("previewCertIssuer");
 const modalLink = document.getElementById("previewCertLink");
 const closeBtn = document.getElementById("closeCertificatePreview");
 
-// Open modal
+const modalIframe = document.getElementById("previewCertIframe"); // new
+
 cards.forEach(card => {
   card.querySelector(".view-btn").addEventListener("click", e => {
     e.preventDefault();
+    const fileId = card.dataset.fileId;
     modalTitle.textContent = card.dataset.title;
     modalIssuer.textContent = card.dataset.issuer;
-    modalImg.src = card.dataset.img; // must be "export=view" link
-    modalLink.href = card.dataset.img;
-    modal.style.display = "flex";
+
+    // Set iframe src instead of img
+  modalIframe.src = `https://drive.google.com/file/d/${fileId}/preview`;
+;
+    modalLink.href = `https://drive.google.com/file/d/${fileId}/view?usp=sharing`;
+    modal.style.display = "block";
   });
 });
-
-// Close modal on X
-closeBtn.addEventListener("click", () => { modal.style.display = "none"; });
-
-// Close modal by clicking outside content
-modal.addEventListener("click", e => {
-  if (e.target === modal) modal.style.display = "none";
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
 });
