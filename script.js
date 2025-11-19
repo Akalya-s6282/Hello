@@ -18,6 +18,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalGithub = document.getElementById("modalGithub");
   const closeModal = document.querySelector(".close");
   const gridItems = document.querySelectorAll(".grid-item");
+ const hamburger = document.getElementById("hamburger");
+
+
+hamburger.addEventListener("click", () => {
+  topNav.classList.toggle("show");
+   hamburger.classList.toggle("active");
+});
+
+document.querySelectorAll('.top-nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    topNav.classList.remove('show');   // hide dropdown
+    hamburger.classList.remove('active');  // reset hamburger state
+  });
+});
+
+
 
   // --- NAV VISIBILITY LOGIC ---
  const updateNavVisibility = () => {
