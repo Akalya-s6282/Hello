@@ -568,6 +568,19 @@ html, body {
   padding: 10px 0;
   color: #1e1e2f;
 }
+#previewCertLink {
+  display: inline-block;
+  margin-top: 12px;
+  color: #000;            
+  text-decoration: none;   /* remove underline */
+}
+
+/* Optional hover effect to indicate it's clickable */
+#previewCertLink:hover {
+  text-decoration: underline; /* show underline on hover */
+  cursor: pointer;
+}
+
 
 
 
@@ -593,16 +606,20 @@ html, body {
 
 .certificate-card {
   background: #fff;
-  position: relative;
-  justify-content: center;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   width: 90%;
   margin: 20px auto;
-  margin-top: 15px;
   padding: 18px;
   border-radius: 12px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cert-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
 .certificate-card:hover {
@@ -621,20 +638,24 @@ html, body {
 }
 
 .view-btn {
-  display: inline-block;
+  margin-left: auto;
   padding: 8px 14px;
-  background: #00eaff;
-  color: #000;
-  border-radius: 6px;
+  background:rgba(20, 19, 48, 0.636);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.336);
+  color: #fff;
   text-decoration: none;
-  font-weight: 600;
-  transition: 0.25s;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.2s ease;
+  display: inline-block;
 }
 
 .view-btn:hover {
-  background: #0099aa;
-  color: #fff;
+  background: #332e5c;
+  transform: scale(1.06);
 }
+
 
 /* Modal Styling */
 .certificate-preview {
@@ -661,13 +682,17 @@ html, body {
 }
 
 
+/* ------------------- CONTACT CONTAINER ------------------- */
 .contact-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 18px; /* Smaller gap */
-  margin-top: 20px;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 20px;
+  min-height: 400px; /* default desktop height */
 }
 
+/* ------------------- CONTACT FORM ------------------- */
 .contact-form {
   flex: 1 1 300px;
   background: #fff;
@@ -686,7 +711,7 @@ html, body {
 .contact-form textarea {
   width: 100%;
   padding: 12px;
-  margin-bottom: 12px; /* reduced */
+  margin-bottom: 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
   transition: border-color 0.3s;
@@ -694,12 +719,12 @@ html, body {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #0077b5;
+  border-color: #1a1a2e;
   outline: none;
 }
 
 .contact-form button {
-  background: #0077b5;
+  background: #202035;
   color: #fff;
   border: none;
   padding: 12px 25px;
@@ -709,34 +734,17 @@ html, body {
 }
 
 .contact-form button:hover {
-  background: #005582;
+  background: #01015dc7;
   transform: scale(1.05);
 }
-.phone-card {
-  display: flex;
-  flex-direction: column;
-  margin-top: 30px;
-  align-items: center;
-  gap: 12px;
-  background: #fff;
-  padding: 12px 18px;
-  border-radius: 12px;
-  text-decoration: none;
-  color: #111;
-  font-weight: 600;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: fit-content;
-}
-
 
 /* ------------------- CONTACT CARDS ------------------- */
-
 .contact-cards {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* reduced gap */
+  gap: 15px;
   justify-content: center;
-  margin-top: 25px;
+  margin-top: 5px;
 }
 
 .contact-card {
@@ -745,9 +753,10 @@ html, body {
   align-items: center;
   justify-content: center;
   width: 100px;
-  height: 100px;
+  height: 80px;
   background: #fff;
   border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
   text-decoration: none;
   color: #111;
   font-weight: 600;
@@ -756,7 +765,7 @@ html, body {
 }
 
 .contact-card i {
-  font-size: 2.4rem;
+  font-size: 2.0rem;
   margin-bottom: 5px;
   transition: transform 0.3s, color 0.3s;
 }
@@ -774,11 +783,11 @@ html, body {
   transform: scale(1.15);
 }
 
-
 /* Icon colors */
 .contact-card[href*="tel:"] i {
   color: #5ad438;
 }
+
 .contact-card[href*="mailto"] i {
   color: #D44638;
 }
@@ -791,66 +800,69 @@ html, body {
   color: #25D366;
 }
 
+.contact-card[href*="github"] i {
+  color: #000000;
+}
+
 
 /* ------------------- RESPONSIVE ------------------- */
 
-@media (max-width: 780px) {
-  /* make the contact-info a flex row that wraps */
-  .contact-info {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 12px !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
+ /* Mobile adjustments */
+
+
+  /* Stack contact section vertically */
+@media (max-width: 768px) {
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* align items to the left */
+    align-items: flex-start;
+    gap: 10px;                  /* small gap between cards and form */
+    padding: 10px;               /* minimal padding */
+    height: auto;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+  }
+  .contact-card i {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  transition: transform 0.3s, color 0.3s;
+}
+
+
+  .contact-cards {
+   display: flex; 
+   flex-direction: row;           /* use flex for horizontal flow */
+    flex-wrap: wrap;          /* wrap to next line if overflow */
+    gap: 12px;
+    width: 100%;
+    justify-content: flex-start;             
   }
 
-  /* keep the phone line full-width on top */
-  .contact-info > p {
-    flex-basis: 100% !important;
-    margin: 0 0 8px 0 !important;
+  .contact-cards .contact-card {
+    flex: 0 0 60px;          /* fixed width per card */
+    justify-content: center;   /* center icon + text */
+    text-align: center;
+    font-size: 0.9rem; 
   }
 
-  /* each contact link becomes an inline-flex card that doesn't stretch vertically */
-  .contact-info > .contact-card {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 10px !important;
-    padding: 8px 12px !important;
-    background: #fff !important;
-    border-radius: 10px !important;
-    min-width: 120px !important;
-    max-width: 48% !important; /* two-per-row max (adjust) */
-    width: auto !important;
-    box-sizing: border-box !important;
-    white-space: nowrap !important;
+  .contact-card span {
+    font-size: 0.85rem;
   }
 
-  /* Prevent the icon from stacking above the label */
-  .contact-info > .contact-card i {
-    display: inline-block !important;
-    font-size: 1.8rem !important;
-    margin-bottom: 0 !important;
-  }
-
-  /* tighten label spacing */
-  .contact-info > .contact-card span {
-    display: inline-block !important;
-    font-size: 0.95rem !important;
-  }
-
-  .phone-card {
-    padding: 10px 14px;
-    gap: 10px;
-  }
-
-  .phone-card i {
-    font-size: 1.4rem;
+  .contact-form {
+    flex: 1;                     /* take remaining space */
+    padding: 10px;
+    min-width: 0;                /* prevent overflow */
   }
 }
 
+
+
 @media (max-width: 768px) {
 
+  
+  
   #hamburger .ham-icon {
   display: inline-block;
   width: 28px;           

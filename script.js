@@ -201,8 +201,33 @@ cards.forEach(card => {
 ;
     modalLink.href = `https://drive.google.com/file/d/${fileId}/view?usp=sharing`;
     modal.style.display = "block";
+    modal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
   });
 });
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
 });
+document.querySelector("form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.querySelector("input[name='name']").value;
+  const email = document.querySelector("input[name='email']").value;
+  const subject = document.querySelector("input[name='subject']").value;
+  const message = document.querySelector("textarea[name='message']").value;
+
+  const body =
+    "Dear Akalya,%0D%0A%0D%0A" +
+    encodeURIComponent(message) +
+    "%0D%0A%0D%0ARegards,%0D%0A" +
+    encodeURIComponent(name) +
+    "%0D%0A" +
+    encodeURIComponent(email);
+
+  const mailtoLink = `mailto:akalya6282@gmail.com?subject=${encodeURIComponent(
+    subject
+  )}&body=${body}`;
+
+  window.location.href = mailtoLink;
+});
+
