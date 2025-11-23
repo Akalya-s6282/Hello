@@ -33,8 +33,8 @@ body.dark-mode {
 
   --accent: #00eaff;
 
-  --box-shadow: 0 6px 10px rgba(255,255,255,0.35);
-  --box-shadow-strong: 0 12px 20px rgba(255,255,255,0.35);
+  --box-shadow: 0 3px 5px rgba(255,255,255,0.35);
+  --box-shadow-strong: 0 6px 10px rgba(255,255,255,0.55);
 
   --muted: rgba(0, 0, 0, 0.6);
 }
@@ -346,7 +346,10 @@ html, body {
 .section {
   text-align: center;
   padding: 30px;
-  background: var(--bg); /* subtle overlay */
+  background: var(--bg);
+  min-height: auto; 
+  gap: 10px;
+  margin-bottom : 10px;/* subtle overlay */
   padding: 25px 30px;
   border-radius: 12px;
   flex: 1 1 300px;
@@ -848,7 +851,7 @@ html, body {
   align-items: center;
   justify-content: center;
   width: 100px;
-  height: 80px;
+  height: 50px;
   background: var(--bg-card);
   border-radius: 12px;
   box-shadow: var(--box-shadow);
@@ -908,7 +911,7 @@ html, body {
     align-items: flex-start;
     gap: 10px;                  /* small gap between cards and form */
     padding: 10px;              /* minimal padding */
-    height: auto;
+    height: flexible;            /* allow height to adjust */
     flex-wrap: nowrap;
     box-sizing: border-box;
   }
