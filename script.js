@@ -5,44 +5,57 @@ document.addEventListener("DOMContentLoaded", () => {
   const sideNav = document.getElementById("sideNav");
   const profilePhoto = document.getElementById("profilePhoto");
   const topNav = document.getElementById("topNav");
+  const hamburger = document.getElementById("hamburger");
 
+  // Slider
   const slides = document.querySelectorAll(".slide");
   const slider = document.querySelector(".slider");
   const nextBtn = document.querySelector(".next");
   const prevBtn = document.querySelector(".prev");
 
-  const modal = document.getElementById("projectModal");
+  // Project Modal
+  const projectModal = document.getElementById("projectModal");
   const modalImg = document.getElementById("modalImage");
   const modalTitle = document.getElementById("modalTitle");
   const modalDesc = document.getElementById("modalDescription");
   const modalGithub = document.getElementById("modalGithub");
-  const closeModal = document.querySelector(".close");
+  const closeProjectModal = projectModal.querySelector(".close");
   const gridItems = document.querySelectorAll(".grid-item");
- const hamburger = document.getElementById("hamburger");
 
+  // Certificates Modal
+  const certModal = document.getElementById("certificatePreview");
+  const certTitle = document.getElementById("previewCertTitle");
+  const certIssuer = document.getElementById("previewCertIssuer");
+  const certLink = document.getElementById("previewCertLink");
+  const certIframe = document.getElementById("previewCertIframe");
+  const closeCertModal = document.getElementById("closeCertificatePreview");
+  const certCards = document.querySelectorAll(".certificate-card");
 
-hamburger.addEventListener("click", () => {
-  topNav.classList.toggle("show");
-   hamburger.classList.toggle("active");
-});
+  // Theme Toggle
+  const themeToggle = document.getElementById("themeToggle");
+  const themeIcon = document.getElementById("themeIcon");
 
-document.querySelectorAll('.top-nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    topNav.classList.remove('show');   // hide dropdown
-    hamburger.classList.remove('active');  // reset hamburger state
+  // --- Hamburger Menu ---
+  hamburger.addEventListener("click", () => {
+    topNav.classList.toggle("show");
+    hamburger.classList.toggle("active");
   });
-});
 
-
+  document.querySelectorAll(".top-nav a").forEach(link => {
+    link.addEventListener("click", () => {
+      topNav.classList.remove("show");
+      hamburger.classList.remove("active");
+    });
+  });
 
   // --- NAV VISIBILITY LOGIC ---
- const updateNavVisibility = () => {
-  const fromTop = mainContent.scrollTop;
-  const activeSection = [...sections].find(
-    section =>
-      section.offsetTop <= fromTop + 100 &&
-      section.offsetTop + section.offsetHeight > fromTop
-  );
+  const updateNavVisibility = () => {
+    const fromTop = mainContent.scrollTop;
+    const activeSection = [...sections].find(
+      section =>
+        section.offsetTop <= fromTop + 100 &&
+        section.offsetTop + section.offsetHeight > fromTop
+    );
 
     if (activeSection && activeSection.id === "landing") {
       sideNav.style.display = "flex";
@@ -55,7 +68,6 @@ document.querySelectorAll('.top-nav a').forEach(link => {
     }
   };
 
-  // Throttle scroll for smooth behavior
   let ticking = false;
   mainContent.addEventListener("scroll", () => {
     if (!ticking) {
@@ -66,18 +78,16 @@ document.querySelectorAll('.top-nav a').forEach(link => {
       ticking = true;
     }
   });
-
-  updateNavVisibility(); // Run once at start
+  updateNavVisibility();
 
   // --- SLIDER LOGIC ---
   let index = 0;
   let autoSlideInterval;
 
-  const showSlide = (i) => {
+  const showSlide = i => {
     if (i >= slides.length) index = 0;
     else if (i < 0) index = slides.length - 1;
     else index = i;
-
     slider.style.transform = `translateX(-${index * 100}%)`;
   };
 
@@ -85,149 +95,128 @@ document.querySelectorAll('.top-nav a').forEach(link => {
     stopAutoSlide();
     autoSlideInterval = setInterval(() => showSlide(index + 1), 4000);
   };
-
   const stopAutoSlide = () => clearInterval(autoSlideInterval);
-  const resetAutoSlide = () => {
+  const resetAutoSlide = () => { stopAutoSlide(); startAutoSlide(); };
+
+  nextBtn.addEventListener("click", () => { showSlide(index + 1); resetAutoSlide(); });
+  prevBtn.addEventListener("click", () => { showSlide(index - 1); resetAutoSlide(); });
+  startAutoSlide();
+
+  // --- PROJECT MODAL ---
+  const openProjectModal = item => {
     stopAutoSlide();
-    startAutoSlide();
-  };
-
-  nextBtn.addEventListener("click", () => {
-    showSlide(index + 1);
-    resetAutoSlide();
-  });
-  prevBtn.addEventListener("click", () => {
-    showSlide(index - 1);
-    resetAutoSlide();
-  });
-
-  startAutoSlide(); // initial auto-slide
-
-  // --- MODAL LOGIC ---
-  const openModal = (item) => {
-    stopAutoSlide();
-    modal.style.display = "block";
+    projectModal.style.display = "block";
     modalImg.src = item.querySelector("img").src;
     modalTitle.textContent = item.dataset.title;
     modalDesc.textContent = item.dataset.description;
-    modalGithub.href = item.dataset.github;
+    modalGithub.href = item.dataset.github || item.dataset.link;
   };
 
-  const closeModalHandler = () => {
-    modal.style.display = "none";
+  const closeProjectHandler = () => {
+    projectModal.style.display = "none";
     startAutoSlide();
   };
 
-  slides.forEach((slide) => slide.addEventListener("click", () => openModal(slide)));
-  gridItems.forEach((item) => item.addEventListener("click", () => openModal(item)));
+  slides.forEach(slide => slide.addEventListener("click", () => openProjectModal(slide)));
+  gridItems.forEach(item => item.addEventListener("click", () => openProjectModal(item)));
+  closeProjectModal.addEventListener("click", closeProjectHandler);
+  window.addEventListener("click", e => { if (e.target === projectModal) closeProjectHandler(); });
 
-  closeModal.addEventListener("click", closeModalHandler);
-  window.addEventListener("click", (e) => { if (e.target === modal) closeModalHandler(); });
-});
-const skillProjects = {
-  foundation: [
-    "Blink Controlled Assistive Keyboard (base logic & Python)",
-    "Discord Verification Bot (Python)"
-  ],
-  problem: [
-    "Blink Signal Interpretation & Navigation Logic",
-    "Matrix-style Functional Test Cases"
-  ],
-  web: [
-    "Assistive Keyboard UI (Pygame → Flet)",
-    "Portfolio Website",
-    "Flask Based Calorie Estimator"
-  ],
-  ai: [
-    "Codebase modification using AI",
-    "Feature Integration & Adaptation"
-  ]
-};
-// Show projects when clicking a skill card
-document.querySelectorAll('.skill-card').forEach(card => {
-  card.addEventListener('click', () => {
-    const key = card.dataset.skill;
-    const projectBox = document.getElementById("skillProjects");
+  // --- SKILL PROJECTS ---
+  const skillProjects = {
+    foundation: [
+      "Blink Controlled Assistive Keyboard (base logic & Python)",
+      "Discord Verification Bot (Python)"
+    ],
+    problem: [
+      "Blink Signal Interpretation & Navigation Logic",
+      "Matrix-style Functional Test Cases"
+    ],
+    web: [
+      "Assistive Keyboard UI (Pygame → Flet)",
+      "Portfolio Website",
+      "Flask Based Calorie Estimator"
+    ],
+    ai: [
+      "Codebase modification using AI",
+      "Feature Integration & Adaptation"
+    ]
+  };
 
-    projectBox.innerHTML = `
-      <h3>Projects Applied:</h3>
-      ${skillProjects[key].map(p => `<p>• ${p}</p>`).join('')}
-    `;
-
-    projectBox.style.display = "block";
-  });
-});
-
-// Scroll to full projects section when projectBox is clicked
-document.getElementById("skillProjects").addEventListener("click", () => {
-  document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
-});
-
-document.querySelectorAll(".skill-card").forEach(card => {
-  const icons = card.querySelectorAll(".icon-row i");
-  const infoArea = card.querySelector(".icon-info");
-
-  icons.forEach(icon => {
-    icon.addEventListener("mouseenter", () => {
-      infoArea.textContent = icon.getAttribute("data-tooltip");
-      card.classList.add("show-info");
+  document.querySelectorAll(".skill-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const key = card.dataset.skill;
+      const projectBox = document.getElementById("skillProjects");
+      projectBox.innerHTML = `
+        <h3>Projects Applied:</h3>
+        ${skillProjects[key].map(p => `<p>• ${p}</p>`).join("")}
+      `;
+      projectBox.style.display = "block";
     });
 
-    icon.addEventListener("mouseleave", () => {
-      infoArea.textContent = "";
-      card.classList.remove("show-info");
+    const icons = card.querySelectorAll(".icon-row i");
+    const infoArea = card.querySelector(".icon-info");
+    icons.forEach(icon => {
+      icon.addEventListener("mouseenter", () => {
+        infoArea.textContent = icon.getAttribute("data-tooltip");
+        card.classList.add("show-info");
+      });
+      icon.addEventListener("mouseleave", () => {
+        infoArea.textContent = "";
+        card.classList.remove("show-info");
+      });
     });
   });
-});
-const cards = document.querySelectorAll(".certificate-card");
-const modal = document.getElementById("certificatePreview");
-const modalImg = document.getElementById("previewCertImg");
-const modalTitle = document.getElementById("previewCertTitle");
-const modalIssuer = document.getElementById("previewCertIssuer");
-const modalLink = document.getElementById("previewCertLink");
-const closeBtn = document.getElementById("closeCertificatePreview");
 
-const modalIframe = document.getElementById("previewCertIframe"); // new
+  document.getElementById("skillProjects").addEventListener("click", () => {
+    document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+  });
 
-cards.forEach(card => {
-  card.querySelector(".view-btn").addEventListener("click", e => {
+  // --- CERTIFICATES MODAL ---
+  certCards.forEach(card => {
+    card.querySelector(".view-btn").addEventListener("click", e => {
+      e.preventDefault();
+      const fileId = card.dataset.fileId;
+      certTitle.textContent = card.dataset.title;
+      certIssuer.textContent = card.dataset.issuer;
+      certIframe.src = `https://drive.google.com/file/d/${fileId}/preview`;
+      certLink.href = `https://drive.google.com/file/d/${fileId}/view?usp=sharing`;
+      certModal.style.display = "block";
+      certModal.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+  closeCertModal.addEventListener("click", () => { certModal.style.display = "none"; });
+
+  // --- CONTACT FORM ---
+  document.getElementById("contactForm").addEventListener("submit", e => {
     e.preventDefault();
-    const fileId = card.dataset.fileId;
-    modalTitle.textContent = card.dataset.title;
-    modalIssuer.textContent = card.dataset.issuer;
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
 
-    // Set iframe src instead of img
-  modalIframe.src = `https://drive.google.com/file/d/${fileId}/preview`;
-;
-    modalLink.href = `https://drive.google.com/file/d/${fileId}/view?usp=sharing`;
-    modal.style.display = "block";
-    modal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const body =
+      "Dear Akalya,%0D%0A%0D%0A" +
+      encodeURIComponent(message) +
+      "%0D%0A%0D%0ARegards,%0D%0A" +
+      encodeURIComponent(name) +
+      "%0D%0A" +
+      encodeURIComponent(email);
 
+    const mailtoLink = `mailto:akalya6282@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    window.location.href = mailtoLink;
+  });
+
+  // --- THEME TOGGLE (Sun/Moon) ---
+  if (localStorage.getItem("dark-mode") === "true") {
+    document.body.classList.add("dark-mode");
+    themeIcon.textContent = "☀️";
+  }
+
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+    themeIcon.textContent = isDark ? "☀️" : "🌙";
+    localStorage.setItem("dark-mode", isDark);
   });
 });
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-document.querySelector("form").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const name = document.querySelector("input[name='name']").value;
-  const email = document.querySelector("input[name='email']").value;
-  const subject = document.querySelector("input[name='subject']").value;
-  const message = document.querySelector("textarea[name='message']").value;
-
-  const body =
-    "Dear Akalya,%0D%0A%0D%0A" +
-    encodeURIComponent(message) +
-    "%0D%0A%0D%0ARegards,%0D%0A" +
-    encodeURIComponent(name) +
-    "%0D%0A" +
-    encodeURIComponent(email);
-
-  const mailtoLink = `mailto:akalya6282@gmail.com?subject=${encodeURIComponent(
-    subject
-  )}&body=${body}`;
-
-  window.location.href = mailtoLink;
-});
-
