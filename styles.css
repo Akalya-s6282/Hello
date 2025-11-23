@@ -1,7 +1,12 @@
 /* Global reset */
 :root{
   /* Base colors */
-  --bg:linear-gradient(135deg, #c0dffb 0%, #fecfcf 40%, #bddcf9 100%);   
+  --bg:linear-gradient(
+  135deg,
+  #8ec6fe 0%,   /* Brighter navy – contrast pops */
+  #7eb5f9 35%,  /* Blue depth without going black */
+  #ab8aff 100%  /* Rich purple end for personality */
+);
   --bg-card: rgba(255,255,255,0.6);       /* page background */
   --sidebar-start: #1a1a2e;  /* sidebar gradient start */
   --sidebar-end: #111111;    /* sidebar gradient end */
@@ -23,7 +28,12 @@
 
 /* Dark mode override */
 body.dark-mode {
-  --bg:linear-gradient(135deg, #0a0f24, #1e0b41, #0c233d);
+  --bg:linear-gradient(
+  135deg,
+  #0a0f24 0%,
+  #16203b 35%,
+  #2a0e56 100%
+);
   --sidebar-start: #023c68;
   --sidebar-end: #0a1114;
 
