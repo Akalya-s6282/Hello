@@ -2,12 +2,13 @@
 :root{
   /* Base colors */
   --bg:linear-gradient(
-  135deg,
-  #8ec6fe 0%,   /* Brighter navy – contrast pops */
-  #7eb5f9 35%,  /* Blue depth without going black */
-  #ab8aff 100%  /* Rich purple end for personality */
-);
-  --bg-card: rgba(255,255,255,0.6);       /* page background */
+        135deg,
+        #fffcf4 0%,     /* Bright Sunny Yellow */
+        #fef3ec 35%,    /* Vibrant Orange */
+        #fae6f0 80%,    /* Hot Pink / Magenta */
+        #f3dafe 100%    /* Rich Violet/Purple */
+    );
+  --bg-card: rgba(0, 0, 0, 0.07);      /* page background */
   --sidebar-start: #1a1a2e;  /* sidebar gradient start */
   --sidebar-end: #111111;    /* sidebar gradient end */
 
@@ -29,22 +30,23 @@
 /* Dark mode override */
 body.dark-mode {
   --bg:linear-gradient(
-  135deg,
-  #0a0f24 0%,
-  #16203b 35%,
-  #2a0e56 100%
-);
+    135deg, 
+    #24293f 0%, 
+    #3a415a 60%, 
+    #1e2439 100%
+    );
   --sidebar-start: #023c68;
   --sidebar-end: #0a1114;
 
   --text-main: #e6e6f5;
   --text-on-dark: #ffffff;
-  --bg-card: rgba(255,255,255,0.07); 
+  --bg-card: rgba(255,255,255,0.08); 
 
   --accent: #00eaff;
 
   --box-shadow: 0 3px 5px rgba(255,255,255,0.35);
   --box-shadow-strong: 0 6px 10px rgba(255,255,255,0.55);
+  --theme-text-primary: #e6e6f5;
 
   --muted: rgba(0, 0, 0, 0.6);
 }
@@ -62,6 +64,7 @@ html, body {
   overflow-y: hidden;
   font-family: 'Poppins', sans-serif;
   background: var(--bg);
+  background-attachment: fixed;
   color: var(--text-main);
   transition: background 0.3s ease, color 0.3s ease;
 }
@@ -642,7 +645,7 @@ html, body {
 }
 
 .grid-item {
-  background: var(--bg);
+  background: var(--bg-card);
   border-radius: 12px;
   box-shadow: var(--box-shadow);
   text-align: center;
@@ -956,6 +959,12 @@ html, body {
     padding: 10px;
     min-width: 0;               /* prevent overflow */
   }
+  .contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--theme-text-primary);
+    opacity: 0.8; /* Makes the placeholder text slightly faded for better UX */
+    font-size: 0.9rem;
+}
 }
 
 @media (max-width: 768px) {
