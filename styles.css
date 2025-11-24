@@ -3,13 +3,13 @@
   /* Base colors */
   --bg: linear-gradient(
     135deg,
-    #fffcf4 0%,
-    /* Bright Sunny Yellow */ #fef3ec 35%,
-    /* Vibrant Orange */ #fae6f0 80%,
-    /* Hot Pink / Magenta */ #f3dafe 100% /* Rich Violet/Purple */
+    #f6f2e7 10%, /* Bright Sunny Yellow */ 
+    #fbf0e9 30%,/* Vibrant Orange */ 
+    #fbe3ef 60%,/* Hot Pink / Magenta */ 
+    #f4e0fc 80% /* Rich Violet/Purple */
   );
-  --bg-card: rgba(0, 0, 0, 0.07); /* page background */
-  --sidebar-start: #1a1a2e; /* sidebar gradient start */
+  --bg-card: rgba(29, 28, 28, 0.06); /* page background */
+  --sidebar-start: #382032; /* sidebar gradient start */
   --sidebar-end: #111111; /* sidebar gradient end */
 
   /* Text */
