@@ -1,27 +1,28 @@
 /* Global reset */
-:root{
+:root {
   /* Base colors */
-  --bg:linear-gradient(
-        135deg,
-        #fffcf4 0%,     /* Bright Sunny Yellow */
-        #fef3ec 35%,    /* Vibrant Orange */
-        #fae6f0 80%,    /* Hot Pink / Magenta */
-        #f3dafe 100%    /* Rich Violet/Purple */
-    );
-  --bg-card: rgba(0, 0, 0, 0.07);      /* page background */
-  --sidebar-start: #1a1a2e;  /* sidebar gradient start */
-  --sidebar-end: #111111;    /* sidebar gradient end */
+  --bg: linear-gradient(
+    135deg,
+    #fffcf4 0%,
+    /* Bright Sunny Yellow */ #fef3ec 35%,
+    /* Vibrant Orange */ #fae6f0 80%,
+    /* Hot Pink / Magenta */ #f3dafe 100% /* Rich Violet/Purple */
+  );
+  --bg-card: rgba(0, 0, 0, 0.07); /* page background */
+  --sidebar-start: #1a1a2e; /* sidebar gradient start */
+  --sidebar-end: #111111; /* sidebar gradient end */
 
   /* Text */
-  --text-main: #1a1a2e;      /* primary text */
-  --text-on-dark: #ffffff;   /* text on dark surfaces */
+  --text-main: #1a1a2e; 
+  --theme-text-primary: #08080986;/* primary text */
+  --text-on-dark: #ffffff; /* text on dark surfaces */
 
   /* Accents */
   --accent: #00d1ff;
 
   /* Shadows */
-  --box-shadow: 0 6px 15px rgba(0,0,0,0.336);
-  --box-shadow-strong: 0 12px 25px rgba(0,0,0,0.5);
+  --box-shadow: 0 6px 15px rgba(0, 0, 0, 0.336);
+  --box-shadow-strong: 0 12px 25px rgba(0, 0, 0, 0.5);
 
   /* Misc */
   --muted: rgba(255, 255, 255, 0.6);
@@ -29,24 +30,19 @@
 
 /* Dark mode override */
 body.dark-mode {
-  --bg:linear-gradient(
-    135deg, 
-    #24293f 0%, 
-    #3a415a 60%, 
-    #1e2439 100%
-    );
+  --bg: linear-gradient(135deg, #24293f 0%, #3a415a 60%, #1e2439 100%);
   --sidebar-start: #023c68;
   --sidebar-end: #0a1114;
 
   --text-main: #e6e6f5;
   --text-on-dark: #ffffff;
-  --bg-card: rgba(255,255,255,0.08); 
+  --bg-card: rgba(255, 255, 255, 0.08);
 
   --accent: #00eaff;
 
-  --box-shadow: 0 3px 5px rgba(255,255,255,0.35);
-  --box-shadow-strong: 0 6px 10px rgba(255,255,255,0.55);
-  --theme-text-primary: #e6e6f5;
+  --box-shadow: 0 3px 5px rgba(255, 255, 255, 0.35);
+  --box-shadow-strong: 0 6px 10px rgba(255, 255, 255, 0.55);
+  --theme-text-primary: #e6e6f586;
 
   --muted: rgba(0, 0, 0, 0.6);
 }
@@ -57,12 +53,13 @@ body.dark-mode {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background: var(--bg);
   background-attachment: fixed;
   color: var(--text-main);
@@ -73,16 +70,16 @@ html, body {
 /* Pop-up Akalya heading */
 .home-content p,
 .fancy_name {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 1.5rem;
   color: var(--text-on-dark);
   text-align: center;
   margin-top: 15px;
-  opacity: 0;                  /* start invisible */
+  opacity: 0; /* start invisible */
   transform: translateY(50px); /* start below */
   animation: popUpSubtitle 1.5s ease-out forwards;
-  animation-delay: 0.6s;       /* start after name animation */
+  animation-delay: 0.6s; /* start after name animation */
 }
 
 /* Keyframes for subtitle pop-up */
@@ -139,7 +136,6 @@ html, body {
   line-height: 1;
 }
 
-
 /* Container layout */
 .container {
   display: flex;
@@ -154,13 +150,13 @@ html, body {
   gap: 40px;
   padding: 60px 20px;
   /* background: var(--bg);       theme background */
-  color: var(--text-main);     /* theme text */
+  color: var(--text-main); /* theme text */
   text-align: left;
 }
 
 /* Each card container */
 #about > div {
-  background: var(--bg-card);       /* subtle overlay */
+  background: var(--bg-card); /* subtle overlay */
   padding: 25px 30px;
   border-radius: 12px;
   flex: 1 1 300px;
@@ -176,16 +172,16 @@ html, body {
 
 /* Headings */
 #about h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 2rem;
   margin-bottom: 15px;
-  color: var(--text-main);     /* theme heading color */
+  color: var(--text-main); /* theme heading color */
 }
 
 /* Optional small underline */
 #about h2::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: -5px;
@@ -204,7 +200,7 @@ html, body {
 
 /* Paragraphs */
 #about p {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   line-height: 1.6;
   margin-top: 8px;
@@ -220,7 +216,11 @@ html, body {
   height: 100vh;
   overflow-y: hidden;
   width: 20%;
-  background: linear-gradient(to bottom, var(--sidebar-start), var(--sidebar-end)); /* subtle gradient */
+  background: linear-gradient(
+    to bottom,
+    var(--sidebar-start),
+    var(--sidebar-end)
+  ); /* subtle gradient */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -237,7 +237,7 @@ html, body {
 
 .side-nav a {
   color: var(--text-on-dark);
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 1.2rem;
   text-decoration: none;
@@ -273,15 +273,15 @@ html, body {
   overflow-y: hidden;
   background-size: cover;
   background-position: 50% 20%;
-  opacity: 0;                  /* start hidden */
+  opacity: 0; /* start hidden */
   transform: translateY(50px); /* start below */
   transition: opacity 0.8s ease, transform 0.8s ease;
   pointer-events: none;
 }
 .profile-photo.show {
   opacity: 1;
-  transform: translateY(0);    /* slide up to normal position */
-  pointer-events: auto;        /* slide up and scale to normal */
+  transform: translateY(0); /* slide up to normal position */
+  pointer-events: auto; /* slide up and scale to normal */
 }
 
 /* Main content layout */
@@ -360,8 +360,8 @@ html, body {
   text-align: center;
   padding: 30px;
   background: var(--bg-card);
-  min-height: auto; 
-  margin-bottom : 10px;/* subtle overlay */
+  min-height: auto;
+  margin-bottom: 10px; /* subtle overlay */
   padding: 25px 30px;
   border-radius: 12px;
   flex: 1 1 300px;
@@ -378,8 +378,8 @@ html, body {
 
 /* Projects Display Box */
 #skillProjects {
-  display: none;            /* hidden initially */
-  grid-column: 1 / -1;      /* span all columns of the grid */
+  display: none; /* hidden initially */
+  grid-column: 1 / -1; /* span all columns of the grid */
   width: 100%;
   padding: 20px 30px;
   margin-top: 20px;
@@ -434,7 +434,8 @@ html, body {
   padding: 18px;
   border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
   overflow: hidden;
 }
 
@@ -482,7 +483,7 @@ html, body {
   font-size: 14px;
   color: var(--accent);
   margin-top: 6px;
-  min-height: 18px; 
+  min-height: 18px;
   opacity: 0;
   transition: opacity 0.25s ease;
   font-weight: 600;
@@ -508,10 +509,15 @@ html, body {
 
 /* Fade animation */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 
 .gallery-container {
   position: relative;
@@ -549,7 +555,7 @@ html, body {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   color: var(--text-on-dark);
   font-size: 16px;
   padding: 6px;
@@ -566,7 +572,7 @@ html, body {
 }
 
 .nav-buttons button {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   border: none;
   color: var(--text-on-dark);
   font-size: 18px;
@@ -577,7 +583,7 @@ html, body {
 }
 
 .nav-buttons button:hover {
-  background: rgba(255,255,255,0.5); 
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .top-nav.hover {
@@ -589,8 +595,10 @@ html, body {
   display: none;
   position: fixed;
   z-index: 10;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   background-color: var(--muted);
   overflow: auto;
 }
@@ -602,8 +610,8 @@ html, body {
   width: 70%;
   max-width: 600px;
   background-color: var(--muted);
-  max-height: 80vh; 
-  overflow-y: auto; 
+  max-height: 80vh;
+  overflow-y: auto;
   text-align: center;
   border-radius: 15px;
   box-shadow: var(--box-shadow);
@@ -688,12 +696,16 @@ html, body {
 
 /* Neon fade animation */
 @keyframes fadeIn {
-  0%   { text-shadow: 0 0 5px var(--accent), 0 0 10px #ff00ff; }
-  50%  { text-shadow: 0 0 15px #00ff88, 0 0 25px #ff00ff; }
-  100% { text-shadow: 0 0 5px var(--accent), 0 0 10px #ff00ff; }
+  0% {
+    text-shadow: 0 0 5px var(--accent), 0 0 10px #ff00ff;
+  }
+  50% {
+    text-shadow: 0 0 15px #00ff88, 0 0 25px #ff00ff;
+  }
+  100% {
+    text-shadow: 0 0 5px var(--accent), 0 0 10px #ff00ff;
+  }
 }
-
-
 
 /* Grid container */
 #certificates {
@@ -875,7 +887,7 @@ html, body {
 }
 
 .contact-card i {
-  font-size: 2.0rem;
+  font-size: 2rem;
   margin-bottom: 5px;
   transition: transform 0.3s, color 0.3s;
 }
@@ -899,7 +911,7 @@ html, body {
 }
 
 .contact-card[href*="mailto"] i {
-  color: #D44638;
+  color: #d44638;
 }
 
 .contact-card[href*="linkedin"] i {
@@ -907,12 +919,18 @@ html, body {
 }
 
 .contact-card[href*="wa.me"] i {
-  color: #25D366;
+  color: #25d366;
 }
 
 .contact-card[href*="github"] i {
   color: #000000;
 }
+.contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: var(--theme-text-primary)!important;
+    opacity: 1 !important;
+    font-size: 0.9rem;
+  }
 
 /* ------------------- RESPONSIVE ------------------- */
 @media (max-width: 768px) {
@@ -921,9 +939,9 @@ html, body {
     flex-direction: column;
     justify-content: flex-start; /* align items to the left */
     align-items: flex-start;
-    gap: 10px;                  /* small gap between cards and form */
-    padding: 10px;              /* minimal padding */
-    height: flexible;            /* allow height to adjust */
+    gap: 10px; /* small gap between cards and form */
+    padding: 10px; /* minimal padding */
+    height: flexible; /* allow height to adjust */
     flex-wrap: nowrap;
     box-sizing: border-box;
   }
@@ -935,19 +953,19 @@ html, body {
   }
 
   .contact-cards {
-    display: flex; 
-    flex-direction: row;        /* use flex for horizontal flow */
-    flex-wrap: wrap;            /* wrap to next line if overflow */
+    display: flex;
+    flex-direction: row; /* use flex for horizontal flow */
+    flex-wrap: wrap; /* wrap to next line if overflow */
     gap: 12px;
     width: 100%;
-    justify-content: flex-start;             
+    justify-content: flex-start;
   }
 
   .contact-cards .contact-card {
-    flex: 0 0 60px;             /* fixed width per card */
-    justify-content: center;    /* center icon + text */
+    flex: 0 0 60px; /* fixed width per card */
+    justify-content: center; /* center icon + text */
     text-align: center;
-    font-size: 0.9rem; 
+    font-size: 0.9rem;
   }
 
   .contact-card span {
@@ -955,35 +973,30 @@ html, body {
   }
 
   .contact-form {
-    flex: 1;                    /* take remaining space */
+    flex: 1; /* take remaining space */
     padding: 10px;
-    min-width: 0;               /* prevent overflow */
+    min-width: 0; /* prevent overflow */
   }
-  .contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: var(--theme-text-primary);
-    opacity: 0.8; /* Makes the placeholder text slightly faded for better UX */
-    font-size: 0.9rem;
-}
+  
 }
 
 @media (max-width: 768px) {
   #hamburger .ham-icon {
     display: inline-block;
-    width: 28px;           
-    text-align: left;      
-    pointer-events: none;  
+    width: 28px;
+    text-align: left;
+    pointer-events: none;
   }
 
   /* Always hide top-nav by default */
   .top-nav {
     display: none !important;
-    width: 120px; 
+    width: 120px;
   }
 
   .top-nav.show a {
-    color: var(--text-on-dark) !important;  
-    line-height: 0.9;  
+    color: var(--text-on-dark) !important;
+    line-height: 0.9;
   }
 
   /* Hamburger button always visible on mobile */
@@ -999,17 +1012,17 @@ html, body {
     font-size: 28px;
     background: rgba(0, 0, 0, 0.6);
     border: none;
-    color: var(--text-on-dark); 
+    color: var(--text-on-dark);
     z-index: 2500;
-    transition: all 0.25s ease;  
+    transition: all 0.25s ease;
   }
 
   /* When clicked, show dropdown nav */
   .top-nav.show {
     display: flex !important;
     position: fixed;
-    top : 57px;
-    left : 15px;
+    top: 57px;
+    left: 15px;
     flex-direction: column;
     border-radius: 0 0 8px 8px;
     cursor: pointer;
@@ -1017,16 +1030,16 @@ html, body {
     background: rgba(0, 0, 0, 0.6);
     border: none;
     color: var(--text-on-dark);
-    transition: all 0.25s ease; 
-    margin-top: 0px;  
+    transition: all 0.25s ease;
+    margin-top: 0px;
   }
 
   #hamburger.active {
-    width: 120px;                  /* same as dropdown */
+    width: 120px; /* same as dropdown */
     background: rgba(0, 0, 0, 0.6);
     color: var(--text-on-dark);
     text-align: left;
-    border-radius: 10px 10px 0 0;  /* top-round only */
+    border-radius: 10px 10px 0 0; /* top-round only */
   }
 
   /* Hide sidebar fully */
