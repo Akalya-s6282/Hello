@@ -361,12 +361,10 @@ body {
   padding: 30px;
   background: var(--bg-card);
   min-height: auto;
-  margin-bottom: 10px; /* subtle overlay */
   padding: 25px 30px;
   border-radius: 12px;
   flex: 1 1 300px;
   min-width: 280px;
-  /* box-shadow: var(--box-shadow); */
   transition: box-shadow 0.3s ease;
 }
 
