@@ -30,11 +30,11 @@
 
 /* Dark mode override */
 body.dark-mode {
-  --bg: linear-gradient(135deg, #24293f 0%, #3a415a 60%, #1e2439 100%);
-  --sidebar-start: #023c68;
+  --bg: linear-gradient(135deg, #151414 0%, #0e0d0d 60%, #1b1d28 100%);
+  --sidebar-start: #1e2a34;
   --sidebar-end: #0a1114;
 
-  --text-main: #e6e6f5;
+  --text-main: #c3c3c7;
   --text-on-dark: #ffffff;
   --bg-card: rgba(255, 255, 255, 0.08);
 
@@ -165,11 +165,6 @@ body {
   transition: box-shadow 0.3s ease;
 }
 
-/* Card hover shadow only */
-#about > div:hover {
-  box-shadow: var(--box-shadow-strong);
-}
-
 /* Headings */
 #about h2 {
   font-family: "Montserrat", sans-serif;
@@ -214,7 +209,7 @@ body {
 
 .sidebar {
   height: 100vh;
-  overflow-y: hidden;
+  overflow-y: fixed;
   width: 20%;
   background: linear-gradient(
     to bottom,
@@ -265,24 +260,6 @@ body {
   width: 100%;
 }
 
-.profile-photo {
-  /* display: none; Hidden on home */
-  width: 100%;
-  height: 100%;
-  background-image: url("Akalya_side.jpg");
-  overflow-y: hidden;
-  background-size: cover;
-  background-position: 50% 20%;
-  opacity: 0; /* start hidden */
-  transform: translateY(50px); /* start below */
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  pointer-events: none;
-}
-.profile-photo.show {
-  opacity: 1;
-  transform: translateY(0); /* slide up to normal position */
-  pointer-events: auto; /* slide up and scale to normal */
-}
 
 /* Main content layout */
 .main-content {
@@ -523,10 +500,12 @@ body {
   height: 60%;
   margin: 10px auto;
   border-radius: 15px;
+  color: var(--text-main);
   overflow: hidden;
-  box-shadow: var(--box-shadow-strong);
+  box-shadow: var(--box-shadow);
   background: var(--sidebar-end);
 }
+
 
 .slider {
   display: flex;
@@ -553,8 +532,8 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.6);
-  color: var(--text-on-dark);
+  background: rgba(35, 34, 34, 0.523);
+  color: var(--text-main);
   font-size: 16px;
   padding: 6px;
   border-radius: 0 0 15px 15px;
@@ -904,9 +883,6 @@ body {
 }
 
 /* Icon colors */
-.contact-card[href*="tel:"] i {
-  color: #5ad438;
-}
 
 .contact-card[href*="mailto"] i {
   color: #d44638;
@@ -916,9 +892,6 @@ body {
   color: #0077b5;
 }
 
-.contact-card[href*="wa.me"] i {
-  color: #25d366;
-}
 
 .contact-card[href*="github"] i {
   color: #000000;

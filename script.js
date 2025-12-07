@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- DOM Elements ---
   const sections = document.querySelectorAll(".section");
   const mainContent = document.querySelector(".main-content");
-  const sideNav = document.getElementById("sideNav");
+  const sidebar = document.getElementById("sidebar");
   const profilePhoto = document.getElementById("profilePhoto");
   const topNav = document.getElementById("topNav");
   const hamburger = document.getElementById("hamburger");
@@ -58,12 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     if (activeSection && activeSection.id === "landing") {
-      sideNav.style.display = "flex";
-      profilePhoto.classList.remove("show");
+      sidebar.style.display = "flex";
       topNav.style.display = "none";
     } else {
-      sideNav.style.display = "none";
-      profilePhoto.classList.add("show");
+      sidebar.style.display = "none"; 
       topNav.style.display = "flex";
     }
   };
