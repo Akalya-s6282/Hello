@@ -373,7 +373,7 @@ body {
   width: 100%;
   padding: 20px 30px;
   margin-top: 20px;
-  background: var(--muted, #f0f0f0);
+  background: var(--bg-card);
   border-radius: 12px;
   box-shadow: var(--box-shadow, 0 4px 12px rgba(0,0,0,0.1));
 }
@@ -501,7 +501,7 @@ body {
   color: var(--text-main);
   overflow: hidden;
   box-shadow: var(--box-shadow);
-  background: var(--sidebar-end);
+  background: var(--bg-card);
 }
 
 

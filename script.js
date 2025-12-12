@@ -55,11 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section.offsetTop + section.offsetHeight > fromTop
     );
 
-    if (activeSection && activeSection.id === "landing") {
-      topNav.style.display = "none";
-    } else { 
-      topNav.style.display = "flex";
-    }
+    topNav.style.display = activeSection?.id === "landing" ? "none" : "flex";
   };
 
   let ticking = false;
@@ -79,9 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let autoSlideInterval;
 
   const showSlide = i => {
-    if (i >= slides.length) index = 0;
-    else if (i < 0) index = slides.length - 1;
-    else index = i;
+    index = (i + slides.length) % slides.length;
     slider.style.transform = `translateX(-${index * 100}%)`;
   };
 
@@ -115,56 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
   gridItems.forEach(item => item.addEventListener("click", () => openProjectModal(item)));
   closeProjectModal.addEventListener("click", closeProjectHandler);
   window.addEventListener("click", e => { if (e.target === projectModal) closeProjectHandler(); });
-
-  // --- SKILL PROJECTS ---
-  const skillProjects = {
-    foundation: [
-      "Blink Controlled Assistive Keyboard (base logic & Python)",
-      "Discord Verification Bot (Python)"
-    ],
-    problem: [
-      "Blink Signal Interpretation & Navigation Logic",
-      "Matrix-style Functional Test Cases"
-    ],
-    web: [
-      "Assistive Keyboard UI (Pygame → Flet)",
-      "Portfolio Website",
-      "Flask Based Calorie Estimator"
-    ],
-    ai: [
-      "Codebase modification using AI",
-      "Feature Integration & Adaptation"
-    ]
-  };
-
-  document.querySelectorAll(".skill-card").forEach(card => {
-    card.addEventListener("click", () => {
-      const key = card.dataset.skill;
-      const projectBox = document.getElementById("skillProjects");
-      projectBox.innerHTML = `
-        <h3>Projects Applied:</h3>
-        ${skillProjects[key].map(p => `<p>• ${p}</p>`).join("")}
-      `;
-      projectBox.style.display = "block";
-    });
-
-    const icons = card.querySelectorAll(".icon-row i");
-    const infoArea = card.querySelector(".icon-info");
-    icons.forEach(icon => {
-      icon.addEventListener("mouseenter", () => {
-        infoArea.textContent = icon.getAttribute("data-tooltip");
-        card.classList.add("show-info");
-      });
-      icon.addEventListener("mouseleave", () => {
-        infoArea.textContent = "";
-        card.classList.remove("show-info");
-      });
-    });
-  });
-
-  document.getElementById("skillProjects").addEventListener("click", () => {
-    document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
-  });
 
   // --- CERTIFICATES MODAL ---
   certCards.forEach(card => {
