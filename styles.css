@@ -2,12 +2,12 @@
 :root {
   /* Base colors */
   --bg: linear-gradient(
-    135deg,
-  #f7f4b2 10%,   /* soft golden yellow */
-  #ffc9a8 30%,   /* warm sunrise peach */
-  #ffb2d6 60%,   /* bright but elegant pink */
-  #e7b7ff 80% 
-    );/* Rich Violet/Purple */
+
+   135deg,
+  #e3f2ff 0%,     /* early dawn sky */
+  #f9ecff 45%,    /* pale lavender haze */
+  #ffe7c2 100%    /* sun hitting the horizon */
+  );/* Rich Violet/Purple */
     /* Fancy Name Gradient */
  --fancy-start: #5a4b83;   /* brightened twilight violet */
 --fancy-end:   #3d5a94;   /* elevated muted blue-indigo */
@@ -179,27 +179,31 @@ body {
 /* ABOUT SECTION */
 #about {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: left;
   line-height: 1.6;
-  flex-direction: column;
-  gap: 0px !important;        
-  padding: 10px 10px;
   color: var(--text-main);
+  gap: 8px; /* light breathing room */
 }
 
-/* Remove ALL default margins from inner elements */
-#about * {
-  margin: 0 !important;
+/* Remove unwanted margins but don't interfere with layout */
+#about > * {
+  margin: 0;
   padding-top: 2px;
   padding-bottom: 2px;
 }
 
-/* Card wrapper spacing */
+/* Card wrapper */
 #about > div {
-  padding: 10px 12px;
+  padding: 14px 16px;
+  margin-left: 40px;
   border-radius: 10px;
+  max-width: 1200px;
   min-width: 280px;
+  width: 100%; /* plug your gradient here */
 }
+
 
 
 /* Default desktop behavior */
@@ -216,10 +220,9 @@ body {
 }
 .section {
   text-align: center;
-  padding: 30px;
   background: var(--bg-Section);
   min-height: auto;
-  padding: 25px 30px;
+  padding: 25px 30px 25px 30px;
   border-radius: 12px;
   flex: 1 1 300px;
   min-width: 280px;
@@ -361,7 +364,7 @@ body {
 
 /* Skill Section */
 #skills {
-  padding: 40px;
+  padding: 40px; 
   text-align: center;
 }
 
@@ -371,7 +374,7 @@ body {
   display: none; /* hidden initially */
   grid-column: 1 / -1; /* span all columns of the grid */
   width: 100%;
-  padding: 20px 30px;
+  /* padding: 20px 30px; */
   margin-top: 20px;
   background: var(--bg-card);
   border-radius: 12px;
@@ -413,14 +416,15 @@ body {
 
 /* Individual Skill Cards */
 .skill-card {
-  background: var(--bg-card, #fff);
+ background: var(--bg-card, #fff);
   color: var(--text-main, #333);
   box-shadow: var(--box-shadow, 0 4px 12px rgba(0,0,0,0.1));
-  padding: 18px;
+   width: 90%;            /* allows card to take most of the available space */
+  max-width: 800px;      /* prevents it from getting too wide on large screens */
+  min-width: 300px;
+  margin: 20px auto; /* center card horizontally */
   border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  overflow: hidden;
+  padding: 20px;
   text-align: center;
 }
 
@@ -441,15 +445,10 @@ body {
   flex-wrap: wrap;
 }
 
-/* Remove ::after tooltip completely */
-.icon-row {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
-
 .icon-wrapper {
   display: flex;
+    width: fit-content;
+    margin: 0 auto;
   flex-direction: column;
   align-items: center;
   gap: 4px;
@@ -478,19 +477,6 @@ body {
     font-size: 32px;
   }
 }
-
-/* Fade animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 
 .gallery-container {
   position: relative;
@@ -553,6 +539,7 @@ body {
   font-size: 18px;
   padding: 6px 10px;
   cursor: pointer;
+  outline: none;
   border-radius: 8px;
   transition: background 0.3s;
 }
@@ -669,19 +656,6 @@ body {
   cursor: pointer;
 }
 
-/* Neon fade animation */
-@keyframes fadeIn {
-  0% {
-    text-shadow: 0 0 5px var(--accent), 0 0 10px #ff00ff;
-  }
-  50% {
-    text-shadow: 0 0 15px #00ff88, 0 0 25px #ff00ff;
-  }
-  100% {
-    text-shadow: 0 0 5px var(--accent), 0 0 10px #ff00ff;
-  }
-}
-
 /* Grid container */
 #certificates {
   text-align: center;
@@ -780,8 +754,8 @@ body {
 .contact-container {
   display: flex;
   gap: 40px;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   padding: 40px 20px;
   min-height: 400px; /* default desktop height */
 }
@@ -789,6 +763,8 @@ body {
 /* ------------------- CONTACT FORM ------------------- */
 .contact-form {
   flex: 1 1 300px;
+  width: 100%;
+  max-width: 1000px;
   background: var(--bg-card);
   padding: 20px;
   border-radius: 12px;
@@ -899,7 +875,7 @@ body {
     align-items: flex-start;
     gap: 10px; /* small gap between cards and form */
     padding: 10px; /* minimal padding */
-    height: flexible; /* allow height to adjust */
+    height: auto; /* allow height to adjust */
     flex-wrap: nowrap;
     box-sizing: border-box;
   }
