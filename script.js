@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- DOM Elements ---
   const sections = document.querySelectorAll(".section");
   const mainContent = document.querySelector(".main-content");
-  const sidebar = document.getElementById("sidebar");
-  const profilePhoto = document.getElementById("profilePhoto");
   const topNav = document.getElementById("topNav");
   const hamburger = document.getElementById("hamburger");
 
@@ -58,10 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     if (activeSection && activeSection.id === "landing") {
-      sidebar.style.display = "flex";
       topNav.style.display = "none";
-    } else {
-      sidebar.style.display = "none"; 
+    } else { 
       topNav.style.display = "flex";
     }
   };
